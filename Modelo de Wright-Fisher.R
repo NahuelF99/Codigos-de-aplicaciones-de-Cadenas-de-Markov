@@ -1,6 +1,6 @@
 #Modelo de Wright-Fisher (usando una distribución binomial)
 Wright_Fisher <- function(N, p0, g) {
-#N <- Cantidad total de alelos
+#N <- Cantidad total de individuos diploides
 #p0 <- Frecuencia inicial del alelo A
 #g <- Cantidad de generaciones a simular
   
