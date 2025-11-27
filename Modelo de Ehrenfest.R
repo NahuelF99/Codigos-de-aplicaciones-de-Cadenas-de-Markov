@@ -1,4 +1,3 @@
-#Modelo de Ehrenfest
 Ehrenfest <- function(N, steps, x0) {
   # N     = total de partículas
   # steps = número de transiciones
@@ -16,11 +15,11 @@ Ehrenfest <- function(N, steps, x0) {
     }
   }
   
-  # Colores frío y cálido
-  cold_color <- "blue"
-  warm_color <- "red"
+  # Colores fijos (sin degradé)
+  cold_color <- "blue"   # urna 1
+  warm_color <- "red"    # urna 2
   
-  # Gráfico base
+  # Gráfico vacío
   plot(0:steps, x,
        type = "n",
        ylim = c(0, N),
@@ -28,18 +27,17 @@ Ehrenfest <- function(N, steps, x0) {
        ylab = "Cantidad de partículas",
        main = "Modelo de Ehrenfest")
   
-  # Dibujar SOLO 2 puntos por tiempo
+  # Dibujar los PUNTOS
   for (t in 0:steps) {
     urna1 <- x[t + 1]
     urna2 <- N - x[t + 1]
     
-    points(t, urna1, col = cold_color, pch = 16, cex = 1.2)  # punto frío
-    points(t, urna2, col = warm_color, pch = 16, cex = 1.2) # punto cálido
+    points(t, urna1, col = cold_color, pch = 16, cex = 1.2)  # azul
+    points(t, urna2, col = warm_color, pch = 16, cex = 1.2)  # rojo
   }
   
   return(x)
 }
 
-#Cambiar los valores de la función (lo que está entre paréntesis para que se modifique el gráfico)
-#El gráfico muestra la cantidad de partículas en cada urna hasta llegar al equilibrio
-Ehrenfest(2001,600,1000)
+# Ejecutar
+Ehrenfest(10, 25, 8)
